@@ -1,0 +1,58 @@
+<mat-card class="margintop">
+  <mat-accordion class="margintop" multi="true" *ngIf="posts.length > 0">
+    <mat-expansion-panel *ngFor="let post of posts">
+      <mat-expansion-panel-header>
+        <div *ngIf="editedPostId !== post.id">
+          {{ post.title }}
+        </div>
+        <div *ngIf="editedPostId === post.id">
+          <input matInput [(ngModel)]="editablePost.title" (keydown.space)="$event.stopPropagation()">
+        </div>
+      </mat-expansion-panel-header>
+
+      <div class="image-container">
+        <mat-action-row *ngIf="userIsAuthenticated">
+          <div *ngIf="editedPostId !== post.id">
+            <img [src]="post.imagePath" alt="Post Image" class="post-image">
+          </div>
+          <div *ngIf="editedPostId === post.id"> 
+            <!-- Hidden File Input + Trigger -->
+            <input type="file" hidden #fileInput (change)="onImagePicked($event)">
+            <button mat-stroked-button color="primary" type="button" (click)="fileInput.click()">
+              Select Image
+            </button>
+
+            <!-- Preview -->
+            <img *ngIf="imagePreview" [src]="imagePreview" alt="Selected Image" class="post-image">
+          </div>
+        </mat-action-row>
+      </div>
+
+      <div *ngIf="editedPostId !== post.id">
+        <p>{{ post.content }}</p>
+      </div>
+      <div *ngIf="editedPostId === post.id">
+        <textarea matInput rows="4" [(ngModel)]="editablePost.content" (keydown.space)="$event.stopPropagation()"></textarea>
+      </div>
+
+      <!-- Only show buttons if the logged-in user is the post's creator -->
+      <mat-action-row *ngIf="userIsAuthenticated && post.creator === userId">
+        <button mat-button color="primary" (click)="onEdit(post)">Edit</button>
+        <button mat-button color="accent" *ngIf="editedPostId === post.id" (click)="onSaveEdit(post.id)">Save</button>
+        <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <p *ngIf="posts.length <= 0">No post added yet</p>
+</mat-card>
+
+<!-- Wrap the paginator in a wrapper for centering -->
+<div class="paginator-wrapper">
+  <mat-paginator 
+    [length]="totalposts" 
+    [pageSize]="postperpage" 
+    [pageSizeOptions]="pageSizeOption" 
+    (page)="onChangedPage($event)">
+  </mat-paginator>
+</div>

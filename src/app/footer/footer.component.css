@@ -1,0 +1,19 @@
+footer {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    bottom: 0;
+}
+
+footer h3, li, p {
+    list-style-type: none;
+    color: lightgrey;
+    margin-left: 50px;
+}
+
+footer p {
+    margin-right: 50px;
+}

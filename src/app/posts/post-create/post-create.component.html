@@ -1,0 +1,35 @@
+<mat-card>
+  <form [formGroup]="postForm" (ngSubmit)="onAddPost()" autocomplete="on">
+    <h1>Upload a post</h1>
+
+    <!-- Title Input Field -->
+    <mat-form-field>
+      <input matInput type="text" formControlName="title" placeholder="Title" autocomplete="off">
+      <mat-error *ngIf="postForm.get('title')?.invalid">Please enter a title</mat-error>
+    </mat-form-field>
+
+    <!-- Image Upload Button -->
+    <div>
+      <button mat-stroked-button type="button" (click)="filepicker.click()" class="file-button">
+        {{ imagePreview ? 'Change Image' : 'Upload Image' }}
+      </button>
+      <input type="file" #filepicker (change)="onImagePicked($event)" accept="image/*" hidden>
+    </div>
+
+    <!-- Image Preview -->
+    <div class="image-preview">
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Post Image">
+      <br>
+      <p *ngIf="!imagePreview">No image selected</p>
+    </div>
+
+    <!-- Content Textarea Field -->
+    <mat-form-field>
+      <textarea rows="6" matInput formControlName="content" placeholder="Content" autocomplete="off"></textarea>
+      <mat-error *ngIf="postForm.get('content')?.invalid">Please enter content</mat-error>
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Save</button>
+  </form>
+</mat-card>
