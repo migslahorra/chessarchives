@@ -1,0 +1,80 @@
+/* Adjusting mat-paginator for dark mode */
+mat-paginator {
+    border-top: 2px solid #444; /* Lighter border for contrast */
+    background-color: #222; /* Dark background */
+    color: white; /* Light text */
+    width: 100%;
+    position: sticky;
+    top: 0; /* Adjust this value if you have a navigation bar */
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+/* For the main container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5%;
+    height: 100vh;
+    position: absolute;
+}
+
+/* Post form container */
+.post-form-container {
+    width: 40%;
+    margin-right: 5%;
+}
+
+/* Post form card styling */
+.post-form-card {
+    width: 50%;
+    padding: 20px;
+    background-color: #333; /* Dark card background */
+    color: white; /* White text */
+}
+
+/* Post list container */
+.post-list-container {
+    width: 55%;
+}
+
+/* For the mat-card component */
+mat-card {
+    position: absolute;
+    width: 500px;
+    padding: 20px;
+    top: 140px;
+    margin-left: 30%;
+    background-color: #222; /* Dark background */
+    color: white; /* White text */
+}
+
+/* Styling for images */
+.image-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* For post images */
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Dark shadow */
+}
+
+/* For images inside posts */
+.post-image img {  
+    width: 100%;  
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Darker shadow for better contrast */
+}
+
+mat-expansion-panel-header {
+    background-color: #333;
+    color: white;
+}
+
+mat-expansion-panel {
+    background: #333;
+    color: white;
+}

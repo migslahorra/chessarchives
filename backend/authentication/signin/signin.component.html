@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-content>
+    <form (submit)="onSignIn(form)" #form="ngForm">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          name="email"
+          ngModel
+          type="email"
+          placeholder="Email"
+          #emailInput="ngModel"
+          required
+          email>
+        <mat-error *ngIf="emailInput.invalid && emailInput.touched">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          name="password"
+          ngModel
+          type="password"
+          placeholder="Password"
+          #passwordInput="ngModel"
+          required
+          minlength="6">
+        <mat-error *ngIf="passwordInput.invalid && passwordInput.touched">
+          Password must be at least 6 characters
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <br>
+      <br>
+      
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid">
+        Login
+      </button>
+      
+      <br>
+      <br>
+
+        <p>
+          Don't have an account yet? <br>
+          <a routerLink="/signup">
+            Sign Up Now!
+            </a>
+        </p>
+      
+    </form>
+  </mat-card-content>
+</mat-card>

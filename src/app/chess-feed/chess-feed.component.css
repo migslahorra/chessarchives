@@ -1,0 +1,26 @@
+:host {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.feed {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: white;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 400px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 0.5rem;
+}

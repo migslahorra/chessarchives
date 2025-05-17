@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+    <span><i class="fa-solid fa-chess-knight"></i> Chess Archives</span>
+    <span class="spacer"></span>
+    <nav>
+      <ul>
+        <li *ngIf = "userIsAuthenticated">  
+            <a mat-button routerLink = "/chess-feed" routerLinkActive = "mat-accent"><i class="fa-solid fa-rss"></i> Chess Feed</a>  
+        </li>
+
+        <li *ngIf = "userIsAuthenticated">  
+          <a mat-button routerLink = "/pdf-viewer" routerLinkActive = "mat-accent"><i class="fa-solid fa-book"></i> View PDFs</a>  
+        </li>
+
+        <li *ngIf = "userIsAuthenticated">  
+          <a mat-button routerLink = "/pdf-upload" routerLinkActive = "mat-accent"><i class="fa-solid fa-plus"></i> Upload PDF</a>  
+        </li>
+
+        <li *ngIf = "userIsAuthenticated">  
+          <a mat-button routerLink = "/upload" routerLinkActive = "mat-accent"><i class="fa-solid fa-plus"></i> Upload Post</a>  
+        </li>
+
+        <li *ngIf = "userIsAuthenticated">
+          <a mat-button routerLink="/uploads" routerLinkActive="active"><i class="fa-solid fa-wrench"></i> Manage Posts</a>
+        </li>
+
+        <li *ngIf = "!userIsAuthenticated">
+          <a mat-button routerLink="/home" routerLinkActive="active"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+
+        <li *ngIf = "!userIsAuthenticated">
+          <a mat-button routerLink="/about" routerLinkActive="active"><i class="fa-solid fa-circle-exclamation"></i> About</a>
+        </li>
+
+        <li *ngIf = "!userIsAuthenticated">
+          <a mat-button routerLink="/github" routerLinkActive="active"><i class="fa-brands fa-github"></i> Github</a>
+        </li>
+
+        <li *ngIf="userIsAuthenticated" class="profile-dropdown">
+        <button mat-button [matMenuTriggerFor]="profileMenu">
+          <i class="fa-solid fa-user"></i> Profile
+        </button>
+        </li>
+
+        <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item (click)="toggleDarkMode()">
+        <i class="fa-solid fa-circle-half-stroke"></i> Toggle Theme
+        </button>
+        <li *ngIf="authService.getIsAuth()">
+        <a mat-button routerLink="/profile" routerLinkActive="active">
+          <i class="fa-solid fa-user-circle"></i> View Profile
+        </a>
+        </li>
+        <button mat-menu-item (click)="onLogout()">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+        </mat-menu>
+
+      </ul>
+    </nav>
+  </mat-toolbar>

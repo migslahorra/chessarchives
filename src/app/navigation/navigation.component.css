@@ -1,0 +1,21 @@
+mat-toolbar {
+    justify-content: space-around;
+    box-shadow: 2px 4px 8px rgb(0, 0, 0, 0.1);
+    background: #222;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+  }
+  li {
+    display: inline;
+  }
+
+  a:hover {
+    border-bottom: 2px solid black;
+    background-color: wheat;
+    color: #222;
+  }

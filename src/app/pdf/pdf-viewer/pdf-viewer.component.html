@@ -1,0 +1,6 @@
+<!-- pdf-viewer.component.html -->
+<div *ngFor="let pdf of pdfBooks">
+  <h3>{{ pdf.filename }}</h3>
+  <p>Size: {{ pdf.fileSize }} bytes</p>
+  <button (click)="deletePdf(pdf._id)">Delete</button>
+</div>

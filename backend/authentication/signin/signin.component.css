@@ -1,0 +1,22 @@
+:host {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+mat-card {
+  box-shadow: 2px 4px 8px rgb(0, 0, 0, 0.2);
+  background-color: #222;
+  margin-top: 5%;
+  padding: 25px;
+  width: 300px;
+}
+
+p {
+  color: white;
+}
+
+a {
+  color: white;
+}

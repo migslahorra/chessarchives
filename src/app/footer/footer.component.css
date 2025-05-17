@@ -1,0 +1,17 @@
+footer {
+    justify-content: space-between;
+    text-align: center;
+    position: fixed;
+    color: white;
+    display: flex;
+    width: 100%;
+    bottom: 0;
+}
+
+h3 {
+    margin-left: 5%;
+}
+
+p {
+    margin-right: 5%;
+}

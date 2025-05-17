@@ -1,0 +1,11 @@
+<div class="feed" *ngIf="posts.length > 0; else noPosts">
+  <div class="post" *ngFor="let post of posts">
+    <h2 class="title">{{ post.title }}</h2>
+    <p class="content">{{ post.content }}</p>
+    <img *ngIf="post.imagePath" [src]="post.imagePath" alt="Post Image" class="post-image" />
+  </div>
+</div>
+
+<ng-template #noPosts>
+  <p>No posts found.</p>
+</ng-template>

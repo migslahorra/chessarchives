@@ -1,0 +1,83 @@
+/* Container styling */
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f4f7f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Title */
+.pdf-viewer-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* PDF list styling */
+.pdf-list {
+  width: 100%;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.pdf-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pdf-list-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* PDF title */
+.pdf-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #4CAF50;
+  text-align: center;
+}
