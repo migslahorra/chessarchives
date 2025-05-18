@@ -1,9 +1,11 @@
-<div>
-  <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
-  <button (click)="uploadPdf()" [disabled]="!selectedFile">Upload PDF</button>
-</div>
+<div class="upload-pdf">
+  <div>
+    <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+    <button (click)="uploadPdf()" [disabled]="!selectedFile">Upload PDF</button>
+  </div>
 
-<div *ngIf="uploadProgress !== null">
-  <progress [value]="uploadProgress" max="100"></progress>
-  <span>{{ uploadProgress }}%</span>
+  <div *ngIf="uploadProgress !== null">
+    <progress [value]="uploadProgress" max="100"></progress>
+    <span>{{ uploadProgress }}%</span>
+  </div>
 </div>

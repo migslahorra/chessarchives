@@ -1,6 +1,6 @@
-// pdf-viewer.component.ts
 import { Component, OnInit } from '@angular/core';
 import { PdfService } from '../pdf.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -12,23 +12,21 @@ export class PdfViewerComponent implements OnInit {
 
   constructor(private pdfService: PdfService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadPdfs();
   }
 
-  loadPdfs() {
+  loadPdfs(): void {
     this.pdfService.getPdfs().subscribe({
       next: (pdfs) => this.pdfBooks = pdfs,
       error: () => alert('Failed to load PDFs')
     });
   }
 
-  deletePdf(id: string) {
-    if (confirm('Delete this book?')) {
-      this.pdfService.deletePdf(id).subscribe({
-        next: () => this.loadPdfs(),
-        error: () => alert('Deletion failed')
-      });
-    }
+  downloadPdf(storedFilename: string, originalFilename: string) {
+  this.pdfService.downloadPdf(storedFilename).subscribe({
+    next: (blob) => saveAs(blob, originalFilename),
+    error: () => alert('Download failed')
+  });
   }
 }

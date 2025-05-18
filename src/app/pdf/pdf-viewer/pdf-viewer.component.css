@@ -1,83 +1,123 @@
-/* Container styling */
+/* Base styles */
 .pdf-viewer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 2rem;
-  background-color: #f4f7f9;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
+  height: 80vh;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f4f7f9;
+  color: #333;
 }
 
-/* Title */
 .pdf-viewer-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 1rem;
   text-align: center;
+  color: inherit;
 }
 
-/* PDF list styling */
 .pdf-list {
   width: 100%;
-  margin-top: 1rem;
-  list-style: none;
-  padding: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.scrollable-list {
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .pdf-list-item {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  align-items: center;
+  background-color: #ffffff;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .pdf-list-item:hover {
   background-color: #f1f1f1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* PDF title */
 .pdf-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
   flex: 1;
+  margin-right: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: inherit;
 }
 
-/* Delete button */
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  padding: 6px 12px;
+.pdf-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.download {
+  background-color: #4CAF50;
   border: none;
-  border-radius: 4px;
+  color: white;
+  padding: 8px 12px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 
-.delete-btn:hover {
+.delete {
   background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-/* Loading spinner */
-.loading-spinner {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #4CAF50;
-  text-align: center;
+.scrollable-list::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollable-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .pdf-viewer-container {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .pdf-list-item {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+  }
+
+  .pdf-list-item:hover {
+    background-color: #333333;
+  }
+
+  .download,
+  .delete {
+    color: #fff;
+  }
+
+  .scrollable-list::-webkit-scrollbar-thumb {
+    background-color: #555;
+  }
+}
+
+button {
+  color: black;
 }

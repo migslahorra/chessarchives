@@ -15,3 +15,7 @@ h3 {
 p {
     margin-right: 5%;
 }
+
+footer.light-mode {
+    color: white;
+}

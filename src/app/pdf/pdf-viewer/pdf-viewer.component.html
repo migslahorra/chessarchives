@@ -1,6 +1,15 @@
-<!-- pdf-viewer.component.html -->
-<div *ngFor="let pdf of pdfBooks">
-  <h3>{{ pdf.filename }}</h3>
-  <p>Size: {{ pdf.fileSize }} bytes</p>
-  <button (click)="deletePdf(pdf._id)">Delete</button>
+<div class="pdf-viewer-container">
+  <h2 class="pdf-viewer-title">PDF Library</h2>
+
+  <div class="pdf-list scrollable-list">
+    <div *ngFor="let pdf of pdfBooks" class="pdf-list-item">
+      <div class="pdf-title">
+        <h4>{{ pdf.filename }}</h4>
+        <small>Size: {{ pdf.fileSize }} bytes</small>
+      </div>
+      <div class="pdf-actions">
+        <button (click)="downloadPdf(pdf.filepath, pdf.filename)">Download</button>
+      </div>
+    </div>
+  </div>
 </div>

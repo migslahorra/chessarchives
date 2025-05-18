@@ -92,3 +92,34 @@ body.light-mode mat-card {
   box-shadow: 4px 8px 16px rgb(0, 0, 0, 0.3);
   color: white;
 }
+
+.pdf-viewer-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+}
+
+.pdf-list-item {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  box-shadow: 0 2px 4px var(--box-shadow-color);
+  transition: background-color 0.3s ease;
+}
+
+.pdf-list-item:hover {
+  background-color: var(--card-hover-bg-color);
+}
+
+.download {
+  background-color: var(--button-download-bg);
+  color: var(--button-text-color);
+}
+
+.delete {
+  background-color: var(--button-delete-bg);
+  color: var(--button-text-color);
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+}

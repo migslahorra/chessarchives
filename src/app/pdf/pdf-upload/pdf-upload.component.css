@@ -78,3 +78,9 @@ input[type="file"]:hover {
   font-weight: bold;
   color: #333;
 }
+
+.upload-pdf {
+  position: fixed;
+  display: block;
+  margin: 20%;
+}
